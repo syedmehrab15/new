@@ -68,6 +68,7 @@ def home():
         brief = analyze_pair(pair, client)
         if brief:
             save_brief(brief)
+            brief = brief.model_dump() # Convert Pydantic object to dictionary for template rendering
 
     return render_template_string(HTML_TEMPLATE, pairs=DEFAULT_PAIRS, brief=brief, selected_pair=pair)
 
