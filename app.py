@@ -2,7 +2,7 @@ import os
 import anthropic
 from flask import Flask, render_template_string, request
 from agent import analyze_pair
-from database import save_brief
+from database import save_brief, init_db # Import init_db
 from prompts import DEFAULT_PAIRS
 
 app = Flask(__name__)
@@ -73,6 +73,8 @@ def home():
     return render_template_string(HTML_TEMPLATE, pairs=DEFAULT_PAIRS, brief=brief, selected_pair=pair)
 
 if __name__ == '__main__':
+    # Initialize the database when the app starts
+    init_db()
     # Bind to PORT provided by environment (Render/Heroku standard)
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
