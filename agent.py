@@ -17,8 +17,7 @@ log = logging.getLogger("fx_agent")
 
 TWELVE_DATA_KEY = os.getenv("TWELVE_DATA_API_KEY", "demo")
 
-# FIX: correct model string (was 'claude-sonnet-4-5-20250929' — does not exist)
-MODEL = "claude-sonnet-4-5-20251001"
+MODEL = "claude-sonnet-4-5-20250929"
 
 TRADE_BRIEF_TOOL = {
     "name": "submit_trade_brief",
